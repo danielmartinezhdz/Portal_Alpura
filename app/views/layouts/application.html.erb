@@ -9,6 +9,16 @@
   </head>
 
   <body>
+  	<header style="background:red important!;">
+  		<nav>
+  			<ul class="nav nav-tabs">
+  				<li><%=link_to "LOGO", root_path%></li>
+  				<li><%=link_to "Inicio",root_path%></li>
+  				<li><%=link_to "Jobs", root_path%></li>
+  				<li><%=link_to "Productos", root_path%></li>
+  			</ul>
+  		</nav>
+  	</header>
     <%= yield %>
   </body>
 </html>

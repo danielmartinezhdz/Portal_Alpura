@@ -1,0 +1,2 @@
+class Datatype < ApplicationRecord
+end

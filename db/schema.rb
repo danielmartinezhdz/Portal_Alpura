@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303213334) do
+ActiveRecord::Schema.define(version: 20170303214720) do
 
   create_table "datatypes", force: :cascade do |t|
     t.string   "name"
@@ -32,9 +32,12 @@ ActiveRecord::Schema.define(version: 20170303213334) do
 
   create_table "params", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at",  precision: 6,  null: false
+    t.datetime "updated_at",  precision: 6,  null: false
+    t.integer  "datatype_id", precision: 38
   end
+
+  add_index "params", ["datatype_id"], name: "index_params_on_datatype_id"
 
   create_table "webservices", force: :cascade do |t|
     t.string   "description"
@@ -45,4 +48,5 @@ ActiveRecord::Schema.define(version: 20170303213334) do
   end
 
   add_foreign_key "jobs", "webservices"
+  add_foreign_key "params", "datatypes"
 end
